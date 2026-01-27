@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola Menu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+    <a href="makanan.html" class="btn btn-secondary mb-3">
+        ← Kembali ke Menu Makanan & Minuman
+    </a>
+
+    <h1>Kelola Menu Restoran</h1>
+
+        
+        <!-- Tombol untuk menambah menu baru -->
+        <button class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#addMenuModal">Tambah Menu</button>
+
+        <!-- Tabel Menu -->
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Nama Menu</th>
+                    <th>Deskripsi</th>
+                    <th>Harga</th>
+                    <th>Gambar</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody id="menuTable">
+                <!-- Data menu akan ditampilkan di sini menggunakan JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal untuk menambah menu baru -->
+    <div class="modal fade" id="addMenuModal" tabindex="-1" aria-labelledby="addMenuModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addMenuModalLabel">Tambah Menu Baru</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addMenuForm" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="menuName" class="form-label">Nama Menu</label>
+                            <input type="text" class="form-control" id="menuName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="menuDescription" class="form-label">Deskripsi</label>
+                            <textarea class="form-control" id="menuDescription" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="menuPrice" class="form-label">Harga</label>
+                            <input type="number" class="form-control" id="menuPrice" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="menuImage" class="form-label">Gambar Menu</label>
+                            <input type="file" class="form-control" id="menuImage" accept="image/*" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Tambah Menu</button> <!-- Tombol submit -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+let menuData = JSON.parse(localStorage.getItem("menuData")) || [];
+let editId = null;
+
+// SIMPAN / TAMBAH MENU
+document.getElementById("addMenuForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = menuName.value;
+    const description = menuDescription.value;
+    const price = menuPrice.value;
+    const imageFile = menuImage.files[0];
+
+    if (!imageFile) return alert("Gambar wajib diisi!");
+
+    const reader = new FileReader();
+    reader.onload = function() {
+        if (editId === null) {
+            menuData.push({
+                id: Date.now(),
+                name,
+                description,
+                price,
+                image: reader.result
+            });
+        } else {
+            const index = menuData.findIndex(m => m.id === editId);
+            menuData[index] = { id: editId, name, description, price, image: reader.result };
+            editId = null;
+        }
+
+        localStorage.setItem("menuData", JSON.stringify(menuData));
+        loadMenuData();
+        addMenuForm.reset();
+        bootstrap.Modal.getInstance(addMenuModal).hide();
+    };
+    reader.readAsDataURL(imageFile);
+});
+
+// TAMPILKAN DATA
+function loadMenuData() {
+    menuTable.innerHTML = "";
+    menuData.forEach((menu, i) => {
+        menuTable.innerHTML += `
+        <tr>
+            <td>${i + 1}</td>
+            <td>${menu.name}</td>
+            <td>${menu.description}</td>
+            <td>Rp ${menu.price}</td>
+            <td><img src="${menu.image}" width="80"></td>
+            <td>
+                <button class="btn btn-warning btn-sm" onclick="editMenu(${menu.id})">Edit</button>
+                <button class="btn btn-danger btn-sm" onclick="deleteMenu(${menu.id})">Hapus</button>
+            </td>
+        </tr>`;
+    });
+}
+
+// EDIT
+function editMenu(id) {
+    const menu = menuData.find(m => m.id === id);
+    menuName.value = menu.name;
+    menuDescription.value = menu.description;
+    menuPrice.value = menu.price;
+    editId = id;
+    new bootstrap.Modal(addMenuModal).show();
+}
+
+// HAPUS
+function deleteMenu(id) {
+    if (confirm("Hapus menu ini?")) {
+        menuData = menuData.filter(m => m.id !== id);
+        localStorage.setItem("menuData", JSON.stringify(menuData));
+        loadMenuData();
+    }
+}
+
+window.onload = loadMenuData;
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Admin - Pesanan</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-4">
+
+<h3>Daftar Pesanan Masuk</h3>
+
+<table class="table table-bordered mt-3">
+<thead class="table-dark">
+<tr>
+<th>No</th>
+<th>Gambar</th>
+<th>Menu</th>
+<th>Harga</th>
+<th>Waktu</th>
+<th>Aksi</th>
+</tr>
+</thead>
+<tbody id="orderList"></tbody>
+</table>
+
+<a href="admin-dashboard.html" class="btn btn-secondary">Kembali</a>
+
+<script>
+let orders = JSON.parse(localStorage.getItem("orders")) || [];
+const orderList = document.getElementById("orderList");
+
+function tampilPesanan(){
+orderList.innerHTML = "";
+
+orders.forEach((o,i)=>{
+orderList.innerHTML += `
+<tr>
+<td>${i+1}</td>
+<td><img src="${o.image}" width="60"></td>
+<td>${o.name}</td>
+<td>Rp ${o.price}</td>
+<td>${o.date}</td>
+<td>
+<button class="btn btn-danger btn-sm" onclick="hapusPesanan(${i})">Hapus</button>
+</td>
+</tr>`;
+});
+}
+
+function hapusPesanan(i){
+orders.splice(i,1);
+localStorage.setItem("orders", JSON.stringify(orders));
+tampilPesanan();
+}
+
+tampilPesanan();
+</script>
+
+</body>
+</html>

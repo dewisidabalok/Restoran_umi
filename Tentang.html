@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restoran Umi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #5f64ff, #7bc7fe);
+            color: #333;
+        }
+        header {
+            background: linear-gradient(135deg, #7eb4e0, #555);
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+            border-bottom: 5px solid #7be2fe;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            text-transform: uppercase;
+        }
+        header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-top: 10px;
+        }
+        section {
+            padding: 40px;
+            background-color: white;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #5f72ff;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .restaurant-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        .restaurant-info div {
+            width: 48%;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        .restaurant-info p {
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+        .restaurant-info h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 15px 25px;
+            background-color: #5f67ff;
+            color: white;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        .cta-button:hover {
+            background-color: #7bcafe;
+            transform: translateY(-5px);
+        }
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            position: relative;
+        }
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        .footer-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5rem;
+            color: #7bbffe;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-house-door"></i>Home
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="profile.html"><i class="bi bi-person-circle"></i>Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tentang.html"><i class="bi bi-info-circle"></i></i> Tentang</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-list"></i> Menu
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="makanan.html"><i class="bi bi-egg-fried"></i> Makanan dan Minuman</a></li>
+                            
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="pesan.html"><i class="bi bi-cart"></i> Pesan</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Selamat Datang di Restoran Kami</h1>
+        <p>"Selamat datang di restoran kami! Kami dengan bangga menyajikan aneka hidangan istimewa yang diracik oleh koki berpengalaman. Dengan suasana yang hangat dan pelayanan terbaik, kami ingin memastikan Anda merasa seperti di rumah sendiri. Nikmati perjalanan rasa yang memanjakan lidah Anda. Terima kasih telah memilih kami sebagai tempat bersantap Anda. Selamat menikmati hidangan dan selamat bersantai!"</p>
+    </header>
+
+    <section>
+        <h2>Tentang Kami</h2>
+        <div class="restaurant-info">
+            <div>
+                <h3>Sejarah Kami</h3>
+                <p>Kami adalah restoran yang dimiliki 3 wanita yang berteman sejak lama, kami menyajikan hidangan lezat dengan sentuhan cinta. Dengan pengalaman bertahun-tahun dalam menciptakan karya kuliner, restoran kami menawarkan suasana yang nyaman dan beragam pilihan hidangan.</p>
+            </div>
+            <div>
+                <h3>Suasana Kami</h3>
+                <p>Restoran kami dirancang untuk memberikan suasana yang santai dan ramah. Baik Anda datang untuk makan santai atau merayakan acara khusus, dekorasi modern dan pencahayaan hangat kami akan membuat Anda merasa nyaman.</p>
+            </div>
+        </div>
+
+        <h2>Lokasi</h2>
+        <p>Kami terletak di pusat kota, mudah dijangkau oleh penduduk lokal maupun pengunjung. Kunjungi kami di:</p>
+        <p><strong>Jalan Hang Tuah No.123, Kota Medan</strong></p>
+
+        <h2>Kontak Kami</h2>
+        <p>Untuk reservasi atau pertanyaan, silakan hubungi kami di:</p>
+        <p><strong>Telepon:</strong> 083802277678</p>
+        <p><strong>Email:</strong> restorankami@gmail.com</p>
+
+        <a href="" class="cta-button">Hubungi Kami Sekarang</a>
+    </section>
+
+    <footer>
+        <div class="footer-logo">&copy;Restoran Kami</div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

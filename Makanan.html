@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restoran Umi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        .header-img {
+            max-width: 650px;
+            height: auto;
+            margin: 20px auto;
+            display: block;
+        }
+
+        .content-container {
+            background: url('instagram-log.png') no-repeat center center/cover;
+            height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .card {
+            width: 90%;
+            max-width: 800px;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #6ba8dd, #84c1db);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+        }
+
+        header {
+            width: 100%;
+            background: linear-gradient(to right, #5c6378, #6ba8ea);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+        }
+
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 5px solid #61b5ff;
+        }
+
+        .menu-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .menu-content h3 {
+            margin: 10px 0;
+            font-size: 24px;
+            color: #6961ff;
+        }
+
+        .menu-content p {
+            font-size: 14px;
+            color: #777;
+            margin: 10px 0;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin: 15px 0;
+        }
+
+        .order-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background: #6186ff;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .order-button:hover {
+            background: #419dff;
+        }
+
+        footer {
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(to right, #256ca9, #84c1db);
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-house-door"></i>Home
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="profile.html"><i class="bi bi-person-circle"></i>Profil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tentang.html"><i class="bi bi-info-circle"></i></i> Tentang</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-list"></i> Menu
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="makanan.html"><i class="bi bi-egg-fried"></i> Makanan dan
+                                    Minuman</a></li>
+
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="Pesan.html"><i class="bi bi-cart"></i> Pesan</a></li>
+                            <ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        Menu Makanan & Minuman
+    </header>
+    <div class="menu-container" id="menuList">
+        <!-- Makanan -->
+        <div class="menu-item">
+            <img src="img/nasi goreng12.jpeg" alt="Nasi Goreng">
+            <div class="menu-content">
+                <h3>Nasi Goreng</h3>
+                <p>Nasi goreng khas dengan ayam dan telur.</p>
+                <div class="price">Rp 25.000</div>
+                <a href="#" class="order-button" onclick="orderAndBack('${m.name}','${m.price},'${m.image}')">
+                    Pesan Sekarang
+                </a>
+
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="img/sate ayam.jpg" alt="Sate Ayam">
+            <div class="menu-content">
+                <h3>Sate Ayam</h3>
+                <p>Sate ayam dengan bumbu kacang khas.</p>
+                <div class="price">Rp 20.000</div>
+                <a href="pesan.html" class="order-button" onclick="saveOrder('Sate Ayam',20000,'img/sate ayam.jpg')">
+                    Pesan Sekarang
+                </a>
+
+
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="img/ayam bakar.jpg" alt="Ayam Bakar">
+            <div class="menu-content">
+                <h3>Ayam Bakar</h3>
+                <p>Ayam bakar dengan sambal kecap pedas.</p>
+                <div class="price">Rp 30.000</div>
+                <a href="pesan.html" class="order-button" onclick="saveOrder('Ayam Bakar',30000,'img/ayam bakar.jpg')">
+                    Pesan Sekarang
+                </a>
+
+
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="img/iga bakar.JPG" alt="iga bakar">
+            <div class="menu-content">
+                <h3>Iga Bakar</h3>
+                <p>Iga Bakar.</p>
+                <div class="price">Rp 40.000</div>
+                <a href="pesan.html" class="order-button" onclick="saveOrder('Iga Bakar',40000,'img/iga bakar.JPG')">
+                    Pesan Sekarang
+                </a>
+
+
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="img/steak dagong.jpg" alt="steak">
+            <div class="menu-content">
+                <h3>Steak Daging</h3>
+                <p>Steak Daging Sapi.</p>
+                <div class="price">Rp 50.000</div>
+                <a href="pesan.html" class="order-button"
+                    onclick="saveOrder('Steak Daging',50000,'img/steak dagong.jpg')">
+                    Pesan Sekarang
+                </a>
+
+
+
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="img/rendang.webp" alt="rendang">
+            <div class="menu-content">
+                <h3>Rendang</h3>
+                <p>Rendang.</p>
+                <div class="price">Rp 30.000</div>
+                <a href="pesan.html" class="order-button" onclick="saveOrder('Rendang',30000,'img/rendang.webp')">
+                    Pesan Sekarang
+                </a>
+
+
+            </div>
+        </div>
+
+        <!-- Minuman -->
+        <div class="menu-item">
+            <img src="img/es teh.jpeg" alt="Es Teh">
+            <div class="menu-content">
+                <h3>Es Teh</h3>
+                <p>Es teh manis segar untuk menemani makan Anda.</p>
+                <div class="price">Rp 5.000</div>
+                <a href="pesan.html" class="order-button" onclick="saveOrder('Es Teh',5000,'img/es teh.jpeg')">
+                    Pesan Sekarang
+                </a>
+
+
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="img/jus mangga.jpg" alt="Jus Mangga">
+            <div class="menu-content">
+                <h3>Jus Mangga</h3>
+                <p>Jus mangga segar dengan es batu dingin.</p>
+                <div class="price">Rp 15.000</div>
+                <a href="pesan.html" class="order-button" onclick="saveOrder('Jus Mangga',15000,'img/jus mangga.jpg')">
+                    Pesan Sekarang
+                </a>
+
+
+
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="img/kopi hitam.jpg" alt="Kopi Hitam">
+            <div class="menu-content">
+                <h3>Kopi Hitam</h3>
+                <p>Kopi hitam klasik untuk energi sepanjang hari.</p>
+                <div class="price">Rp 10.000</div>
+                <a href="pesan.html" class="order-button" onclick="saveOrder('Kopi Hitam',10000,'img/kopi hitam.jpg')">
+                    Pesan Sekarang
+                </a>
+
+
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="img/kopi susu.jpeg" alt="Kopi susu">
+            <div class="menu-content">
+                <h3>Kopi Susu</h3>
+                <p>Kopi Susu.</p>
+                <div class="price">Rp 12.000</div>
+                <a href="pesan.html" class="order-button" onclick="saveOrder('Kopi Susu',12000,'img/kopi susu.jpeg')">
+                    Pesan Sekarang
+                </a>
+
+
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="img/lemon.jpeg" alt="lemon">
+            <div class="menu-content">
+                <h3>Lemon Tea</h3>
+                <p>Lemon Tea.</p>
+                <div class="price">Rp 15.000</div>
+                <a href="pesan.html" class="order-button" onclick="saveOrder('Lemon Tea',15000,'img/lemon.jpeg')">
+                    Pesan Sekarang
+                </a>
+
+
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="img/jus pokat.jpeg" alt="jus">
+            <div class="menu-content">
+                <h3>Juice Alpukat</h3>
+                <p>Juice Alpukat.</p>
+                <div class="price">Rp 18.000</div>
+                <a href="pesan.html" class="order-button"
+                    onclick="saveOrder('Juice Alpukat',18000,'img/jus pokat.jpeg')">
+                    Pesan Sekarang
+                </a>
+
+            </div>
+        </div>
+    </div>
+    <footer>
+        &copy; 2025 Restoran Lezat | Nikmati Hidangan Terbaik Kami
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let menuData = JSON.parse(localStorage.getItem("menuData")) || [];
+        const menuList = document.getElementById("menuList");
+
+        function renderMenu() {
+            let html = "";
+
+            menuData.forEach(m => {
+                html += `
+        <div class="menu-item">
+            <img src="${m.image}">
+            <div class="menu-content">
+                <h3>${m.name}</h3>
+                <p>${m.description}</p>
+                <div class="price">Rp ${m.price}</div>
+                <a href="pesan.html" class="order-button"
+                   onclick="saveOrder('${m.name}',${m.price},'${m.image}')">
+                   Pesan Sekarang
+                </a>
+            </div>
+        </div>`;
+            });
+
+            menuList.innerHTML += html;
+        }
+
+        renderMenu();
+
+        function saveOrder(name, price, image) {
+            let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+            orders.push({
+                name: name,
+                price: price,
+                image: image,
+                date: new Date().toLocaleString()
+            });
+
+            localStorage.setItem("orders", JSON.stringify(orders));
+        }
+    </script>
+
+
+</body>
+
+</html>

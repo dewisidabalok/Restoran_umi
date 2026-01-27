@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restoran Umi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        .header-img {
+            max-width: 650px;
+            height: auto;
+            margin: 20px auto;
+            display: block;    
+        }
+        .content-container {
+            background: url('instagram-log.png') no-repeat center center/cover; 
+            height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .card {
+            width: 90%;
+            max-width: 800px;
+        }
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #61b3ff, #e2e1ff);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+        }
+        header {
+            width: 100%;
+            background: linear-gradient(to right, #ff6f61, #ff8f81);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+        }
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+        .menu-item {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 5px solid #ff6f61;
+        }
+        .menu-content {
+            padding: 20px;
+            text-align: center;
+        }
+        .menu-content h3 {
+            margin: 10px 0;
+            font-size: 24px;
+            color: #ff6f61;
+        }
+        .menu-content p {
+            font-size: 14px;
+            color: #777;
+            margin: 10px 0;
+        }
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin: 15px 0;
+        }
+        .order-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background: #ff6f61;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        .order-button:hover {
+            background: #ff4f41;
+        }
+        footer {
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(to right, #ff6f61, #ff8f81);
+            color: white;
+            margin-top: 20px;
+        }
+
+        .profil-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        .profil-card {
+            width: 280px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            text-align: center;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .profil-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .profil-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .profil-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .profil-info {
+            padding: 20px;
+        }
+
+        .profil-info h3 {
+            color: #333;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .profil-info p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .profil-info strong {
+            color: #3f51b5;
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            .profil-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .profil-card {
+                width: 90%;
+            }
+        }
+    </style>
+   
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-house-door"></i> Home
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="profile.html"><i class="bi bi-person-circle"></i></i>Profil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tentang.html"><i class="bi bi-info-circle"></i></i> Tentang</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-list"></i> Menu
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="makanan.html"><i class="bi bi-egg-fried"></i> Makanan dan Minuman</a></li>
+                           
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="pesan.html"><i class="bi bi-cart"></i> Pesan</a></li>
+                        <ul>
+                    </li>
+                </ul>
+               
+            </div>
+        </div>
+    </nav>
+
+    <div class="profil-container">
+        <!-- Profil dewi -->
+        <div class="profil-card">
+            <img src="img/fotooo.jpg" alt="Foto ">
+            <div class="profil-info">
+                <h3>Dewi</h3>
+                <p><strong>Nama:</strong> DEWI ANGGRAINI SIDABALOK</p>
+                <p><strong>NPM:</strong> 223520072</p>
+            </div>
+        </div>
+
+        <!-- Profil dwi -->
+        <div class="profil-card">
+            <img src="img/dwi.jpeg" alt="Foto">
+            <div class="profil-info">
+                <h3>Dwi</h3>
+                <p><strong>Nama:</strong> DWI AMELIA</p>
+                <p><strong>NPM:</strong> 223520064</p>
+            </div>
+        </div>
+
+        <!-- Profil iyen -->
+        <div class="profil-card">
+            <img src="img/iyen.jpeg" alt="Foto">
+            <div class="profil-info">
+                <h3>Iyen</h3>
+                <p><strong>Nama:</strong> IYEN LABERTA SIMBOLON </p>
+                <p><strong>NPM:</strong> 223520071</p>
+            </div>
+        </div>
+
+         
+            </div>
+        </div>
+    </div>
+</body>
+</html>

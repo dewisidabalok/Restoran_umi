@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Pesanan Saya</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+
+<h2>Pesanan Anda</h2>
+
+<div class="card p-4">
+    <img id="gambarMenu" width="250" class="mb-3">
+    <h4 id="namaMenu"></h4>
+    <p id="hargaMenu"></p>
+
+    <a href="makanan.html" class="btn btn-secondary mt-3">Kembali ke Menu</a>
+</div>
+
+<script>
+const order = JSON.parse(localStorage.getItem("currentOrder"));
+
+if(order){
+    document.getElementById("namaMenu").innerText = order.name;
+    document.getElementById("hargaMenu").innerText = "Rp " + order.price;
+    document.getElementById("gambarMenu").src = order.image;
+}
+</script>
+
+</body>
+</html>
